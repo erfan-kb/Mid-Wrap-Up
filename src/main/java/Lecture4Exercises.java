@@ -5,7 +5,14 @@ public class Lecture4Exercises {
      *   lecture 4 page 15
      */
     public long factorial(int n) {
-        return 0L;
+        int temp = n;
+        long result = 1;
+        while (temp >0)
+        {
+            result*= temp;
+            temp--;
+        }
+        return result;
     }
 
     /*
@@ -14,7 +21,15 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public long fibonacci(int n) {
-        return 0;
+        if(n==1){
+            return 1;
+        }
+        else if(n==2){
+            return 1;
+        }
+        else{
+            return fibonacci(n-1) + fibonacci(n-2);
+        }
     }
 
     /*
@@ -22,7 +37,12 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public String reverse(String word) {
-        return null;
+        String temp = "";
+        for (int i = word.length(); i > 0; i--) {
+            temp += word.substring(i-1,i);
+        }
+
+        return temp;
     }
 
     /*
@@ -32,7 +52,21 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public boolean isPalindrome(String line) {
-        return false;
+        line = line.toLowerCase();
+        line = line.replaceAll(" ","");
+
+        String temp = "";
+        for (int i = line.length(); i > 0; i--) {
+            temp += line.substring(i-1,i);
+        }
+
+        if(temp.equals(line))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /*
@@ -47,6 +81,22 @@ public class Lecture4Exercises {
      *   lecture 4 page 26
      */
     public char[][] dotPlot(String str1, String str2) {
-        return null;
+        char[][] table = new char[str1.length()][str2.length()];
+
+        for(int i = 0; i < str1.length();i++)
+        {
+            for (int j = 0; j < str2.length(); j++) {
+
+                if (str1.substring(i,i+1).equals(str2.substring(j,j+1)))
+                {
+                    table[i][j]= '*';
+                }
+                else {
+                    table[i][j] = ' ';
+                }
+            }
+        }
+        return table;
+
     }
 }
